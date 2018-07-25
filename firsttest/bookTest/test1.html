@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
+    <script src="http://js.arcgis.com/3.9/"></script>
+
+    <script>
+        require(
+            [
+                "esri/map",
+                "esri/layers/ArcGISTiledMapServiceLayer",
+                "dojo/domReady!"
+            ],
+            function (Map,ArcGISTiledMapServiceLayer){
+                var map = new Map("mapDiv");
+                var Tiled = "http://server.arcgisonline.com/arcgis/rest/services/ESRI_StreetMap_World_2D/MapServer";
+                var TiledLayer = new ArcGISTiledMapServiceLayer(Tiled,{displayLevels:[0,1,2,3,4,5,6,7]});
+                map.addLayer(TiledLayer);
+            }
+        );
+    </script>
+    <style>
+        body,html,#mapDiv{
+            padding:0%;
+            margin: 0%;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html> 

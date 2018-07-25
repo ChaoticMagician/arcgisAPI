@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"> 
+<title></title> 
+<link rel="stylesheet" href="http://59.193.204.44/arcgis311/3.11/esri/css/esri.css"> 
+<style> 
+html, body, #map { 
+    height: 100%; 
+    width: 100%;
+    margin: 0;
+    padding: 0; 
+}
+</style>
+<script src="http://59.193.204.44/arcgis311/3.11/init.js"></script> 
+<script>
+var map;
+require(["esri/map","esri/layers/ArcGISTiledMapServiceLayer","esri/layers/ArcGISDynamicMapServiceLayer", "dojo/domReady!"],
+function (Map, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer) {
+map = new Map("map");
+//添加 瓦片图层，其中：hostip为要替换的共享平台服务器ip，port为端口号，userkey为系统管理员提供的40位userkey加密字符串，tilename为瓦片图层名称。
+var tileLayer = new ArcGISTiledMapServiceLayer("http://59.193.204.40/9e4a55c300cf9febda30e68453c022c2925cadf2/Tile/ARCGISRest/BHDZMAP2K1584.gis");
+//添加 动态图层，其中：hostip为要替换的共享平台服务器ip，port为端口号，userkey为系统管理员提供的40位userkey加密字符串，layername为矢量图层名称。
+var dynLayer = new ArcGISDynamicMapServiceLayer("http://59.193.204.40/9e4a55c300cf9febda30e68453c022c2925cadf2/WMS/ArcGIS/SDE.SIJWG.gis");
+map.addLayers([tileLayer,dynLayer]);}
+);
+</script>
+</head>
+<body>
+<div id="map"></div> 
+</body> 
+</html>

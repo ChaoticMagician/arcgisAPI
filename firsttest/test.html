@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Simple Map</title>
+	  <script type="text/javascript">
+	    var webserviceurl ="59.193.204.44/arcgisGA/javascript/arcgis";        //127.0.0.1:8000/javascript/
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://59.193.204.44/arcgisGA/esri/css/esri.css"/>     <!--http://192.168.1.56:8000/javascript/arcgisGA/-->
+    <script type="text/javascript" src="http://59.193.204.44/arcgisGA/init.js"></script>          <!--http://192.168.1.56:8000/javascript/arcgisGA/-->
+    <script type="text/javascript">
+      dojo.require("esri.map");
+
+      var SharkSetting = {
+				/*动态切片，按顺序叠加*/
+			
+				/*初始范围*/
+				startextent: {
+			
+					"xmin": 117.11784424436705,
+					"ymin": 38.545712090442336,
+					"xmax": 118.07333034893685,
+					"ymax": 39.34613640860063,
+					"spatialReference": { "wkid": 4326 }
+				},
+				/*全图范围*/
+				fullextent: {
+					"xmin": 117.6064432804,
+					"ymin": 38.9542275766001,
+					"xmax": 117.7439106236,
+					"ymax": 39.0347751514001,
+					"spatialReference": { wkid: 4326 }
+				},
+
+
+
+				// startextent: {
+				// 	"xmin": 117.38323975,
+				// 	"ymin": 38.7880249,
+				// 	"xmax": 117.68218994,
+				// 	"ymax": 39.09362793,
+				// 	"spatialReference": { "wkid": 4326 }
+				// },
+				// /*全图范围*/
+				// fullextent: {
+				// 	"xmin": 117.38323975,
+				// 	"ymin": 38.7880249,
+				// 	"xmax": 117.68218994,
+				// 	"ymax": 39.09362793,
+				// 	"spatialReference": { wkid: 4326 }
+				// },
+
+				cenpt: { "x": 117.192535, "y": 39.125799, "spatialReference": { "wkid": 4326 } },
+				
+
+			};
+
+      var ext=null;
+			require(["esri/geometry/Extent"],function(Map,ArcGISTiledMapServiceLayer){
+				 ext=new esri.geometry.Extent(SharkSetting.startextent);
+			});
+
+      function init() {
+        var myMap = new esri.Map("mapDiv",{
+          extent: ext,
+          fitExtent: true 
+        });
+        //note that if you do not have public Internet access then you will need to point this url to your own locally accessible cached service.
+        //http://server.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer
+        var myTiledMapServiceLayer = new esri.layers.ArcGISTiledMapServiceLayer("http://59.193.204.40/3f2b9d6f43ef580cd3e83b23023deb0be2189d9e/Tile/ArcGISRest/BHDZMAP2K1584.gis");
+        var dynLayer = new esri.layers.ArcGISDynamicMapServiceLayer("http://59.193.204.40/9e4a55c300cf9febda30e68453c022c2925cadf2/ArcGIS/MapService/Catalog/SDE.EJWG_1.gis");
+        //myMap.addLayer(myTiledMapServiceLayer);
+        myMap.addLayers([myTiledMapServiceLayer,dynLayer]);
+       // arcgisREST    WMSServer
+      }
+      dojo.addOnLoad(init);
+    </script>
+  </head>
+  <body class="tundra">
+    <div id="mapDiv" style="width:900px; height:600px; border:1px solid #000;"></div>
+  </body>
+</html>

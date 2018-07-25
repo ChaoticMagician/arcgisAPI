@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>first test</title>
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+    <style>
+        body,html,#mapDiv{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+      require("esri/map");
+      var ext=null;
+			require(["esri/geometry/Extent"],function(Map,ArcGISTiledMapServiceLayer){
+				 ext=new esri.geometry.Extent(SharkSetting.startextent);
+			});
+
+      function init() {
+        var myMap = new esri.Map("mapDiv",{
+          extent: ext,
+          fitExtent: true 
+        });
+        //note that if you do not have public Internet access then you will need to point this url to your own locally accessible cached service.
+        //http://server.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer
+        var myTiledMapServiceLayer = new esri.layers.ArcGISTiledMapServiceLayer("http://localhost:6080/arcgis/rest/services/XWZ/MapServer");
+        // var dynLayer = new esri.layers.ArcGISDynamicMapServiceLayer("http://59.193.204.40/9e4a55c300cf9febda30e68453c022c2925cadf2/ArcGIS/MapService/Catalog/SDE.YJWG_1.gis");
+        //myMap.addLayer(myTiledMapServiceLayer);
+        myMap.addLayers([myTiledMapServiceLayer]);
+       // arcgisREST    WMSServer
+      }
+      dojo.addOnLoad(init);
+    </script>
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html>
