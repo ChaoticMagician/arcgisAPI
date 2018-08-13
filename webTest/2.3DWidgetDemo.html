@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.3D-widget-test</title>
+
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+
+    <style>
+        html,
+        body,
+        #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/widgets/BasemapToggle",
+            "dojo/domReady!"
+            ], function(
+            Map,
+            MapView,
+            BasemapToggle
+            ) {
+
+            // Create the Map with an initial basemap
+            var map = new Map({
+                basemap: "topo"
+            });
+
+            // Create the MapView and reference the Map in the instance
+            var view = new MapView({
+                container: "mapDiv",
+                map: map,
+                center: [-86.049, 38.485],
+                zoom: 3
+            });
+            var toggle = new BasemapToggle({
+                // 2 - Set properties
+                view: view, // view that provides access to the map's 'topo' basemap
+                nextBasemap: "hybrid" // allows for toggling to the 'hybrid' basemap
+            });
+              // Add widget to the top right corner of the view
+            view.ui.add(toggle, "top-right");
+        });
+    </script>
+
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html>

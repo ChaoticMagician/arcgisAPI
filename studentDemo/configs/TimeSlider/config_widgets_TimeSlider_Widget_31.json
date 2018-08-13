@@ -1,0 +1,41 @@
+{
+  "showLabels": false,
+  "autoPlay": true,
+  "loopPlay": true,
+  "timeFormat": "auto",
+  "isHonorWebMap": false,
+  "customDateFormat": "",
+  "customLayersConfig": [],
+  "customTimeConfig": {
+    "keepValueFlag": false,
+    "startTime": {
+      "timeConfig": {
+        "keepValueFlag": false,
+        "timeMode": "min",
+        "time": null,
+        "calender": {
+          "operator": "",
+          "number": "",
+          "unit": ""
+        }
+      }
+    },
+    "endTime": {
+      "timeConfig": {
+        "keepValueFlag": false,
+        "timeMode": "max",
+        "time": null,
+        "calender": {
+          "operator": "",
+          "number": "",
+          "unit": ""
+        }
+      }
+    },
+    "interval": {
+      "number": 0,
+      "units": "esriTimeUnitsMilliseconds"
+    },
+    "displayAllData": false
+  }
+}

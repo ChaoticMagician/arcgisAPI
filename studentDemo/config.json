@@ -1,0 +1,590 @@
+{
+  "theme": {
+    "name": "FoldableTheme",
+    "styles": [
+      "green",
+      "cyan",
+      "default",
+      "black",
+      "blue",
+      "purple",
+      "red",
+      "yellow"
+    ],
+    "version": "2.9",
+    "sharedTheme": {
+      "isPortalSupport": true,
+      "useHeader": false,
+      "useLogo": false
+    }
+  },
+  "portalUrl": "http://www.arcgisonline.cn/portal",
+  "appId": "",
+  "authorizedCrossOriginDomains": [],
+  "title": "studentDemo",
+  "subtitle": "with Web AppBuilder for ArcGIS",
+  "keepAppState": true,
+  "logo": "images/app-logo.png",
+  "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
+  "links": [],
+  "widgetOnScreen": {
+    "widgets": [
+      {
+        "uri": "themes/FoldableTheme/widgets/HeaderController/Widget",
+        "position": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "height": 40,
+          "paddingRight": 275,
+          "relativeTo": "browser"
+        },
+        "version": "2.9",
+        "id": "themes_FoldableTheme_widgets_HeaderController_Widget_1",
+        "name": "HeaderController"
+      },
+      {
+        "uri": "widgets/Scalebar/Widget",
+        "position": {
+          "left": 7,
+          "bottom": 25,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_Scalebar_Widget_2",
+        "name": "Scalebar"
+      },
+      {
+        "uri": "widgets/Search/Widget",
+        "position": {
+          "right": 2,
+          "top": 2,
+          "relativeTo": "browser",
+          "zIndex": 6
+        },
+        "version": "2.9",
+        "id": "widgets_Search_Widget_3",
+        "name": "Search"
+      },
+      {
+        "uri": "widgets/Coordinate/Widget",
+        "position": {
+          "left": 7,
+          "bottom": 5,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_Coordinate_Widget_4",
+        "name": "Coordinate"
+      },
+      {
+        "position": {
+          "left": 7,
+          "bottom": 70,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_5",
+        "name": "AddData",
+        "version": "2.9",
+        "closeable": true,
+        "uri": "widgets/AddData/Widget",
+        "config": "configs/AddData/config__5.json"
+      },
+      {
+        "position": {
+          "left": 57,
+          "bottom": 70,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_6",
+        "name": "EmergencyResponseGuide",
+        "version": "2.9",
+        "closeable": true,
+        "keepConfigAfterMapSwithched": false,
+        "uri": "widgets/EmergencyResponseGuide/Widget",
+        "config": "configs/EmergencyResponseGuide/config__6.json"
+      },
+      {
+        "position": {
+          "left": 107,
+          "bottom": 70,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_7",
+        "name": "Draw",
+        "version": "2.9",
+        "closeable": true,
+        "uri": "widgets/Draw/Widget",
+        "config": "configs/Draw/config__7.json"
+      },
+      {
+        "position": {
+          "left": 157,
+          "bottom": 70,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_8",
+        "name": "Stream",
+        "version": "2.9",
+        "closeable": true,
+        "uri": "widgets/Stream/Widget",
+        "config": "configs/Stream/config__8.json"
+      },
+      {
+        "position": {
+          "left": 207,
+          "bottom": 70,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_9"
+      },
+      {
+        "uri": "widgets/OverviewMap/Widget",
+        "position": {
+          "right": 0,
+          "bottom": 0,
+          "zIndex": 1,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_OverviewMap_Widget_10",
+        "name": "OverviewMap"
+      },
+      {
+        "uri": "widgets/HomeButton/Widget",
+        "position": {
+          "left": 7,
+          "top": 75,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_HomeButton_Widget_11",
+        "name": "HomeButton"
+      },
+      {
+        "uri": "widgets/MyLocation/Widget",
+        "position": {
+          "left": 7,
+          "top": 110,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_MyLocation_Widget_12",
+        "name": "MyLocation"
+      },
+      {
+        "uri": "widgets/AttributeTable/Widget",
+        "position": {
+          "relativeTo": "browser"
+        },
+        "version": "2.9",
+        "id": "widgets_AttributeTable_Widget_13",
+        "name": "AttributeTable"
+      },
+      {
+        "uri": "widgets/Splash/Widget",
+        "visible": false,
+        "position": {
+          "relativeTo": "browser"
+        },
+        "version": "2.9",
+        "id": "widgets_Splash_Widget_14",
+        "name": "Splash"
+      },
+      {
+        "uri": "widgets/ZoomSlider/Widget",
+        "position": {
+          "top": 5,
+          "left": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_ZoomSlider_Widget_15",
+        "name": "ZoomSlider"
+      },
+      {
+        "uri": "widgets/ExtentNavigate/Widget",
+        "visible": false,
+        "position": {
+          "top": 190,
+          "left": 7,
+          "relativeTo": "map"
+        },
+        "id": "widgets_ExtentNavigate_Widget_16",
+        "name": "ExtentNavigate",
+        "version": "2.9"
+      },
+      {
+        "uri": "widgets/FullScreen/Widget",
+        "visible": false,
+        "position": {
+          "top": 150,
+          "left": 7,
+          "relativeTo": "map"
+        },
+        "version": "2.9",
+        "id": "widgets_FullScreen_Widget_17",
+        "name": "FullScreen"
+      }
+    ],
+    "panel": {
+      "uri": "jimu/OnScreenWidgetPanel",
+      "position": {
+        "relativeTo": "map"
+      }
+    }
+  },
+  "map": {
+    "3D": false,
+    "2D": true,
+    "position": {
+      "left": 0,
+      "top": 40,
+      "right": 0,
+      "bottom": 0
+    },
+    "itemId": "e122c10d7b4442c291f647516ee0e7f4",
+    "mapOptions": {
+      "extent": {
+        "xmin": 13726137.198453136,
+        "ymin": 5122200.352455408,
+        "xmax": 13759769.490898568,
+        "ymax": 5143182.3167196615,
+        "spatialReference": {
+          "wkid": 102100
+        }
+      }
+    },
+    "id": "map",
+    "portalUrl": "http://www.arcgisonline.cn/portal",
+    "mapRefreshInterval": {
+      "useWebMapRefreshInterval": true
+    }
+  },
+  "widgetPool": {
+    "panel": {
+      "uri": "themes/FoldableTheme/panels/FoldablePanel/Panel",
+      "position": {
+        "top": 5,
+        "right": 5,
+        "bottom": 5,
+        "zIndex": 5,
+        "relativeTo": "map"
+      }
+    },
+    "widgets": [
+      {
+        "uri": "widgets/Legend/Widget",
+        "version": "2.9",
+        "id": "widgets_Legend_Widget_18",
+        "name": "Legend",
+        "index": 2
+      },
+      {
+        "uri": "widgets/LayerList/Widget",
+        "version": "2.9",
+        "id": "widgets_LayerList_Widget_19",
+        "name": "LayerList",
+        "index": 3
+      },
+      {
+        "name": "Measurement",
+        "version": "2.9",
+        "uri": "widgets/Measurement/Widget",
+        "index": 4,
+        "id": "widgets_Measurement_Widget_20"
+      },
+      {
+        "name": "Query",
+        "version": "2.9",
+        "uri": "widgets/Query/Widget",
+        "index": 5,
+        "id": "widgets_Query_Widget_21"
+      },
+      {
+        "name": "Swipe",
+        "version": "2.9",
+        "uri": "widgets/Swipe/Widget",
+        "index": 6,
+        "id": "widgets_Swipe_Widget_22",
+        "position": {
+          "relativeTo": "map"
+        }
+      },
+      {
+        "name": "Bookmark",
+        "version": "2.9",
+        "uri": "widgets/Bookmark/Widget",
+        "index": 7,
+        "id": "widgets_Bookmark_Widget_23"
+      },
+      {
+        "name": "Chart",
+        "version": "2.9",
+        "uri": "widgets/Chart/Widget",
+        "index": 8,
+        "id": "widgets_Chart_Widget_24"
+      },
+      {
+        "name": "LayerList",
+        "label": "图层列表_2",
+        "version": "2.9",
+        "uri": "widgets/LayerList/Widget",
+        "index": 9,
+        "id": "widgets_LayerList_Widget_25"
+      },
+      {
+        "name": "GridOverlay",
+        "version": "2.9",
+        "uri": "widgets/GridOverlay/Widget",
+        "index": 10,
+        "id": "widgets_GridOverlay_Widget_26"
+      },
+      {
+        "name": "ParcelDrafter",
+        "version": "2.9",
+        "IsController": false,
+        "uri": "widgets/ParcelDrafter/Widget",
+        "index": 11,
+        "id": "widgets_ParcelDrafter_Widget_27"
+      },
+      {
+        "name": "CoordinateConversion",
+        "version": "2.9",
+        "IsController": false,
+        "uri": "widgets/CoordinateConversion/Widget",
+        "index": 12,
+        "id": "widgets_CoordinateConversion_Widget_28"
+      },
+      {
+        "name": "DataAggregation",
+        "version": "2.9",
+        "IsController": false,
+        "uri": "widgets/DataAggregation/Widget",
+        "index": 13,
+        "id": "widgets_DataAggregation_Widget_29"
+      },
+      {
+        "name": "ReviewerDashboard",
+        "version": "2.9",
+        "uri": "widgets/ReviewerDashboard/Widget",
+        "index": 14,
+        "id": "widgets_ReviewerDashboard_Widget_30"
+      },
+      {
+        "name": "TimeSlider",
+        "version": "2.9",
+        "uri": "widgets/TimeSlider/Widget",
+        "config": "configs/TimeSlider/config_widgets_TimeSlider_Widget_31.json",
+        "index": 16,
+        "id": "widgets_TimeSlider_Widget_31",
+        "position": {
+          "relativeTo": "map"
+        }
+      }
+    ],
+    "groups": []
+  },
+  "mobileLayout": {
+    "widgetOnScreen": {
+      "widgets": [
+        {
+          "uri": "themes/FoldableTheme/widgets/HeaderController/Widget",
+          "position": {
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "height": 40,
+            "paddingRight": 0,
+            "relativeTo": "browser"
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/Scalebar/Widget",
+          "position": {
+            "left": 7,
+            "bottom": 40,
+            "relativeTo": "map"
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/Search/Widget",
+          "position": {
+            "right": 2,
+            "top": 50,
+            "relativeTo": "browser",
+            "zIndex": 4
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/Coordinate/Widget",
+          "position": {
+            "left": 7,
+            "bottom": 20,
+            "relativeTo": "map"
+          },
+          "version": "2.9"
+        },
+        {
+          "position": {
+            "left": 7,
+            "bottom": 70,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "position": {
+            "left": 57,
+            "bottom": 70,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "position": {
+            "left": 107,
+            "bottom": 70,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "position": {
+            "left": 157,
+            "bottom": 70,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "position": {
+            "left": 207,
+            "bottom": 70,
+            "relativeTo": "map"
+          }
+        },
+        {
+          "uri": "widgets/OverviewMap/Widget",
+          "position": {
+            "right": 0,
+            "bottom": 0,
+            "zIndex": 1
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/HomeButton/Widget",
+          "inPanel": false,
+          "position": {
+            "left": 7,
+            "top": 75
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/MyLocation/Widget",
+          "inPanel": false,
+          "position": {
+            "left": 7,
+            "top": 110
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/AttributeTable/Widget",
+          "version": "2.9",
+          "position": {
+            "relativeTo": "browser"
+          }
+        },
+        {
+          "uri": "widgets/Splash/Widget",
+          "visible": false,
+          "position": {
+            "relativeTo": "browser"
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/ZoomSlider/Widget",
+          "visible": true,
+          "position": {
+            "top": 5,
+            "left": 7
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/ExtentNavigate/Widget",
+          "visible": false,
+          "position": {
+            "top": 190,
+            "left": 7
+          },
+          "version": "2.9"
+        },
+        {
+          "uri": "widgets/FullScreen/Widget",
+          "visible": false,
+          "position": {
+            "top": 150,
+            "left": 7
+          },
+          "version": "2.9"
+        }
+      ]
+    },
+    "map": {
+      "position": {
+        "left": 0,
+        "top": 40,
+        "right": 0,
+        "bottom": 0
+      }
+    },
+    "widgetPool": {
+      "panel": {
+        "uri": "themes/FoldableTheme/panels/FoldablePanel/Panel",
+        "position": {
+          "top": 5,
+          "right": 5,
+          "bottom": 5,
+          "zIndex": 5
+        }
+      }
+    }
+  },
+  "loadingPage": {
+    "backgroundColor": "#508dca",
+    "backgroundImage": {
+      "visible": true,
+      "uri": "configs/loading/images/background.jpeg",
+      "width": 1920,
+      "height": 1080
+    },
+    "loadingGif": {
+      "visible": true,
+      "uri": "/webappbuilder/apps/5/configs/loading/images/predefined_loading_3.gif",
+      "width": 32,
+      "height": 32
+    }
+  },
+  "wabVersion": "2.9",
+  "isTemplateApp": true,
+  "isWebTier": false,
+  "httpProxy": {
+    "useProxy": true,
+    "alwaysUseProxy": false,
+    "url": "",
+    "rules": []
+  },
+  "dataSource": {
+    "dataSources": {},
+    "settings": {}
+  }
+}

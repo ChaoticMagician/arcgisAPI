@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local-image-layer</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+
+    <style>
+        html,
+        body,
+        #mapDiv{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/MapImageLayer",
+            "dojo/domReady!"
+        ],
+        function(Map,SceneView,MapImageLayer){
+
+        var permitsLayer = new MapImageLayer({
+            url: "http://localhost:6080/arcgis/rest/services/SampleWorldCities/MapServer",
+        });
+
+        /*****************************************************************
+         * Add the layer to a map
+         *****************************************************************/
+        var map = new Map({
+        //   basemap: "dark-gray",
+          layers: [permitsLayer]
+        });
+
+        var view = new SceneView({
+          container: "mapDiv",
+          map: map
+        });
+
+        permitsLayer.when(function() {
+          view.goTo(permitsLayer.fullExtent);
+        });
+        }
+        )
+    </script>
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2D-Tiled-Test</title>
+
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+
+    <script>
+        require(
+            [
+                "esri/Map",
+                "esri/views/MapView",
+                "dojo/domReady!"
+            ],
+            function(Map,MapView){
+                var map = new Map({
+                    basemap:"streets"
+                });
+                var view = new MapView({
+                    container:"mapDiv",
+                    map: map,
+                    zoom: 7,
+                    center: [15,65]
+                });
+            }
+        );
+    </script>
+
+    <style>
+        body,html,#mapDiv{
+            padding: 0%;
+            margin: 0%;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html>

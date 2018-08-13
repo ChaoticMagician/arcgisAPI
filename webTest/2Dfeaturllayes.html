@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2D-feature-layers</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+
+    <style>
+        body,
+        html,
+        #mapDiv{
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+<script>
+   var dojoConfig= {
+       has: {
+           "esri-featurelayer-webgl":1
+       }
+   }
+
+</script>
+    <script>
+        require([
+            "esri/map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/layers/MapImageLayer",
+            "dojo/domReady!"
+        ],
+        function(Map,MapView,FeatureLayer,MapImageLayer){
+
+            var ImageLayer = new MapImageLayer({
+                url: "http://localhost:6080/arcgis/rest/services/SampleWorldCities/MapServer",
+            });
+
+            var featureLayer = new FeatureLayer({
+                url:"http://localhost:6080/arcgis/rest/services/localhostdata/BHBC/FeatureServer/0"
+            })
+
+            var map = new Map({
+                basemap: "dark-gray",
+                layers: [ImageLayer,featureLayer]
+            });
+
+            var MapView = new MapView({
+                container:"mapDiv",
+                map:map,
+
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <div id="mapDiv"></div>
+</body>
+</html>

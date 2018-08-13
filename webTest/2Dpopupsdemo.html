@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        html,
+        body,
+        #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css">
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+
+    
+    <script>
+        require(
+            [
+                "esri/tasks/Locator",
+                "esri/Map",
+                "esri/views/MapView",
+                "dojo/domReady!"
+            ],
+            function(Locator,Map,MapView){
+                var locatorTask = new Locator({
+                    url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+                });
+                var map = new Map({
+                    basemap: "streets-navigation-vector"
+                });
+                var view = new MapView({
+                    container:"mapDiv",
+                    map:map,
+                    center: [-116.3031, 43.6088],
+                    zoom: 12
+                });
+                
+                view.on("click",function(event){
+                    event.stopPropagation();
+                    var lat = Math.round(event.mapPoint.latitude*1000)/1000;
+                    var lon = Math.round(event.mapPoint.longitude*1000)/1000;
+                    view.popup.open({
+                        title: "Reverse geocode: {"+lon+","+lat+"}",
+                        location: event.mapPoint
+                    });
+                    //按照坐标，搜索地名地址
+                    locatorTask.locationToAddress(event.mapPoint).then(function(response){
+                        view.popup.content = response.address;
+                    }).catch(function(error){
+                        view.popup.content = "No address was found for this location";
+                    });
+                });
+
+            }
+        );
+    </script>
+
+
+</head>
+<body>
+    <div id="mapDiv" ></div>
+</body>
+</html>
