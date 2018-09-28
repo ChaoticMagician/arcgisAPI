@@ -2,38 +2,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Intro to MapView - Create a 2D map</title>
-<style>
-  html, body, #viewDiv {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-  }
-</style>
-  <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css" />
-    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
-<!-- <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css"> -->
-<!-- <script src="https://js.arcgis.com/4.8/"></script> -->
-<script>
-require([
-  "esri/Map",
-  "esri/views/MapView",
-  "dojo/domReady!"
-], function(Map, MapView){
-  var map = new Map({
-    basemap: "topo"
-  });
-  var view = new MapView({
-    container: "viewDiv",  // Reference to the scene div created in step 5
-    map: map,  // Reference to the map object created before the scene
-    zoom: 4,  // Sets zoom level based on level of detail (LOD)
-    center: [15, 65]  // Sets center point of view using longitude,latitude
-  });
-});
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>WMSLayer - 4.8</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+<script src="https://js.arcgis.com/4.8/"></script>
+  <script>
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/layers/WMSLayer",
+      "dojo/domReady!"
+    ], function(
+      esriConfig,
+      Map,
+      SceneView,
+      WMSLayer
+    ) {
+
+      // Use a proxy for the initial WMS GetCapabilities request if the WMS server is not enabled for CORS
+      // esriConfig.request.proxyUrl  = "/proxy/";
+
+      esriConfig.request.corsEnabledServers.push("http://123.56.17.204:8081");
+
+      var layer = new WMSLayer({
+        url: "http://123.56.17.204:8081/geoserver/selfmap/wms",
+        sublayers: [{
+          name: "FGM"
+        }]
+      });
+
+      var map = new Map({
+        basemap: {
+          baseLayers: [layer]
+        }
+      });
+
+      var view = new SceneView({
+        container: "viewDiv",
+        map: map
+      });
+
+    });
+    /***********************************
+     * Data attribution:
+     *  OpenStreetMap WMS by terrestris GmbH and Co. KG. Following sources were used:
+     *  (c) OpenStreetMap contributors (http://www.openstreetmap.org/copyright)
+     *  (c) OpenStreetMap Data (http://openstreetmapdata.com)
+     *  (c) Natural Earth Data (http://www.naturalearthdata.com)
+     *  (c) ASTER GDEM 30m (https://asterweb.jpl.nasa.gov/gdem.asp)
+     *  (c) SRTM 450m by ViewfinderPanoramas (http://viewfinderpanoramas.org/)
+     *  (c) Great Lakes Bathymetry by NGDC (http://www.ngdc.noaa.gov/mgg/greatlakes/)
+     *  (c) SRTM 30m by NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC, https://lpdaac.usgs.gov/)
+     *********************************/
+  </script>
+
 </head>
 <body>
   <div id="viewDiv"></div>

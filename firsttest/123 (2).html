@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Intro to MapView - Create a 2D map</title>
+<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+  <link rel="stylesheet" type="text/css" href="http://123.56.17.204:8091/4.8/esri/css/main.css" />
+    <script type="text/javascript" src="http://123.56.17.204:8091/4.8/init.js"></script>
+<!-- <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css"> -->
+<!-- <script src="https://js.arcgis.com/4.8/"></script> -->
+<script>
+require([
+  "esri/layers/WMSLayer",
+  "esri/config",
+  "esri/Map",
+  "esri/views/MapView",
+  "esri/Basemap",
+  "dojo/domReady!",
+  "esri/geometry/Extent",
+], function(WMSLayer,esriConfig,Map, MapView,Basemap,Extent){
+
+
+    
+    // esriConfig.request.corsEnabledServers.push("localhost");
+   
+     var map = new Map({
+    basemap: "topo",
+  });
+    
+ 
+    var WMSLayerlayer1 = new WMSLayer({
+      id:'who',
+      url: "http://localhost:8080/geoserver/transport/wms",
+      name:'m_way'
+    });
+     WMSLayerlayer1.spatialReferences= 4326;
+     map.layers.add(WMSLayerlayer1);
+      console.log(map);
+    var view = new MapView({
+    container: "viewDiv",  // Reference to the scene div created in step 5
+    map: map,  // Reference to the map object created before the scene
+    zoom: 4,  // Sets zoom level based on level of detail (LOD)
+    center: [-103, 41]  // Sets center point of view using longitude,latitude
+  });
+});
+</script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
